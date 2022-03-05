@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -50,7 +50,7 @@ class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('feedback:index')
 
 
-class ReviewCreateView(CreateView):
+class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Product
     template_name = 'review/review_create.html'
     form_class = ReviewForm
@@ -66,3 +66,21 @@ class ReviewCreateView(CreateView):
             return redirect('feedback:one_product', pk=review.product.pk)
         else:
             return self.form_invalid(form)
+
+
+class ReviewUpdateView(UpdateView):
+    # permission_required = "feedback:change_review"
+    model = Review
+    form_class = ReviewForm
+    template_name = 'review/review_update.html'
+
+    def get_success_url(self):
+        return reverse("feedback:one_product", kwargs={"pk": self.object.product.pk})
+
+
+class ReviewDeleteView(DeleteView):
+    model = Review
+    template_name = 'review/review_delete.html'
+
+    def get_success_url(self):
+        return reverse('feedback:one_product', kwargs={"pk": self.object.product.pk})

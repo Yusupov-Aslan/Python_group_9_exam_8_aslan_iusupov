@@ -1,14 +1,24 @@
 <h2>Отзывы</h2>
 
 {% for review in reviews %}
-    {% if review.moderated %}
-        <br>
-        <div class="card border-info mb-3" style="max-width: 18rem;">
-            <div class="card-header bg-transparent border-info">Автор: {{ review.author }}</div>
-            <div class="card-body ">
-                <h5 class="card-title">Оценка: {{ review.mark }}</h5>
-                <p class="card-text">Отзыв: {{ review.text }}</p>
-            </div>
+    {#    {% if review.moderated %}#}
+    <br>
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-info">Автор: {{ review.author }}<br>
+            Email: {{ review.author.email }}</div>
+        <div class="card-body ">
+            <h5 class="card-title">Оценка: {{ review.mark }}</h5>
+            <p class="card-text">Отзыв: {{ review.text }}</p>
         </div>
-    {% endif %}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'feedback:review_update' review.pk %}">Редактировать
+                отзыв</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'feedback:review_delete' review.pk %}">Удалить
+                отзыв</a>
+        </li>
+    </div>
+
+    {#    {% endif %}#}
 {% endfor %}
