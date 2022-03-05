@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}{{ product.name_goods }}{% endblock %}
 {% block nav %}
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'feedback:update_product' product.pk %}">Редактировать</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'feedback:delete_product' product.pk %}">Удалить</a>
-            </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'feedback:update_product' product.pk %}">Редактировать</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'feedback:delete_product' product.pk %}">Удалить</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'feedback:review_product' product.pk %}">Добавить отзыв</a>
+    </li>
 {% endblock %}
 {% block content %}
     <br>
@@ -21,4 +24,5 @@
         <div class="card-footer bg-transparent border-info">
             <a href="{% url "feedback:index" %}" class="btn btn-primary" style="float: right">Назад</a></div>
     </div>
+    {% include "partial/review_list.html" with reviews=product.reviews.all %}
 {% endblock %}

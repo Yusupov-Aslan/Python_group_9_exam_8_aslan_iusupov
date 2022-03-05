@@ -10,7 +10,7 @@ CATEGORY_CHOICES = [("other", "Other"), ("laptops", "Laptops"), ("monitors", "Mo
 
 @deconstructible
 class MinValueValidator(BaseValidator):
-    message = 'Значение "%(value)s" имеет значение %(show_value)d!Должно быть не менее %(limit_value)d!'
+    message = 'Значение "%(value)s" имеет значение %(show_value)d!Должно быть не меньше %(limit_value)d!'
     code = 'too_low'
 
     def compare(self, a, b):
@@ -22,7 +22,7 @@ class MinValueValidator(BaseValidator):
 
 @deconstructible
 class MaxValueValidator(BaseValidator):
-    message = 'Убедитесь, что это значение равно %(limit_value)d символов (у него %(show_value)d). '
+    message = 'Убедитесь, что это значение не больше %(limit_value)d (у него %(show_value)d). '
     code = 'too_high'
 
     def compare(self, a, b):
@@ -42,11 +42,11 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    # author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='', verbose_name='Автор')
-    product = models.ForeignKey('feedback.Product', on_delete=models.CASCADE, related_name='review',
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews', verbose_name='Автор')
+    product = models.ForeignKey('feedback.Product', on_delete=models.CASCADE, related_name='reviews',
                                 verbose_name='Продукт')
     text = models.TextField(max_length=2000, verbose_name='Текст отзыва')
     mark = models.IntegerField(verbose_name="Оценка", validators=(MinValueValidator(1), MaxValueValidator(5),))
-    moderate = models.BooleanField(verbose_name="Модерирование")
+    moderate = models.BooleanField(verbose_name="Подтвержден", default=False)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     edited_at = models.DateTimeField(auto_now=True, verbose_name="Время редактирования")
