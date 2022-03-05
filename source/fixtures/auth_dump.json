@@ -1,0 +1,127 @@
+[
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Moderators",
+        "permissions": [
+            [
+                "add_product",
+                "feedback",
+                "product"
+            ],
+            [
+                "change_product",
+                "feedback",
+                "product"
+            ],
+            [
+                "delete_product",
+                "feedback",
+                "product"
+            ],
+            [
+                "view_product",
+                "feedback",
+                "product"
+            ],
+            [
+                "add_review",
+                "feedback",
+                "review"
+            ],
+            [
+                "change_review",
+                "feedback",
+                "review"
+            ],
+            [
+                "delete_review",
+                "feedback",
+                "review"
+            ],
+            [
+                "view_review",
+                "feedback",
+                "review"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$493Esfxwudx5haflYPukiC$yR2ZQm6Jtyef+Ni1QKVYH6QwQGpKEhIPtXHU3uAwywY=",
+        "last_login": "2022-03-05T15:17:54.139Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "admin",
+        "last_name": "admin",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-03-05T06:34:28Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$WR9yxwhrJX28YDC4azVZ5Q$zfaX7OoUxfnQi9MZsoG8cDbmNOIEK2jMygRRj8dF3+I=",
+        "last_login": "2022-03-05T15:20:30.406Z",
+        "is_superuser": false,
+        "username": "aslan",
+        "first_name": "Разработчик",
+        "last_name": "Aslan",
+        "email": "meneger@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-03-05T09:59:36Z",
+        "groups": [
+            [
+                "Moderators"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$41rnDHVxaV3RFKZtQUmiI1$iKXKJoGwAmLNvHkF4X5G9DJjiXWuOk1ocRGbn+5YQVQ=",
+        "last_login": "2022-03-05T15:18:34.857Z",
+        "is_superuser": false,
+        "username": "dev",
+        "first_name": "Разработчик",
+        "last_name": "",
+        "email": "lead@mail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-03-05T13:49:19.085Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$3ANSs8TS00DWk0ocu3qjpl$aX3k1Ilm1N0Gzcpgd877mJZ2gn9vQrdlqZQdZNcNvUs=",
+        "last_login": "2022-03-05T15:18:47.641Z",
+        "is_superuser": false,
+        "username": "lead",
+        "first_name": "Капитан",
+        "last_name": "",
+        "email": "red_strega13@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-03-05T14:28:15.272Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

@@ -74,5 +74,44 @@
         "created_at": "2022-03-05T12:56:43.894Z",
         "edited_at": "2022-03-05T12:56:43.894Z"
     }
+},
+{
+    "model": "feedback.review",
+    "pk": 4,
+    "fields": {
+        "author": 3,
+        "product": 6,
+        "text": "qrwert",
+        "mark": 3,
+        "moderate": true,
+        "created_at": "2022-03-05T13:49:43.344Z",
+        "edited_at": "2022-03-05T15:18:05.838Z"
+    }
+},
+{
+    "model": "feedback.review",
+    "pk": 5,
+    "fields": {
+        "author": 3,
+        "product": 2,
+        "text": "ertyu",
+        "mark": 5,
+        "moderate": true,
+        "created_at": "2022-03-05T14:21:15.486Z",
+        "edited_at": "2022-03-05T15:18:13.661Z"
+    }
+},
+{
+    "model": "feedback.review",
+    "pk": 6,
+    "fields": {
+        "author": 3,
+        "product": 2,
+        "text": "lkjhg",
+        "mark": 5,
+        "moderate": false,
+        "created_at": "2022-03-05T14:26:28.819Z",
+        "edited_at": "2022-03-05T14:26:28.819Z"
+    }
 }
 ]
