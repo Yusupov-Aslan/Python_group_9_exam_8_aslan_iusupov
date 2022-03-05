@@ -11,6 +11,10 @@ class ProductAdmin(admin.ModelAdmin):
     fields = ['name_goods', 'category', 'description', 'picture']
 
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['id', 'author', 'product', 'mark', 'moderate']
+
+
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Review)
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(Permission)

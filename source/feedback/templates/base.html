@@ -32,11 +32,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:user_profile' user.pk %}">Личный кабинет</a>
                         </li>
-                        {% if perms.accounts.view_profile %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'accounts:profile_list' %}">Пользователи</a>
-                            </li>
-                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:logout' %}">Выход</a>
                         </li>
@@ -46,11 +41,13 @@
                             </li>
                         {% endif %}
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                           href="{% url 'feedback:add_product' %}">Добавить
-                            товар</a>
-                    </li>
+                    {% if perms.feedback.add_product %}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                               href="{% url 'feedback:add_product' %}">Добавить
+                                товар</a>
+                        </li>
+                    {% endif %}
                 {% endblock %}
             </ul>
         </div>

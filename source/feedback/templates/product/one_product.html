@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}{{ product.name_goods }}{% endblock %}
 {% block nav %}
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'feedback:update_product' product.pk %}">Редактировать</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'feedback:delete_product' product.pk %}">Удалить</a>
-    </li>
+    {% if perms.feedback.change_product %}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'feedback:update_product' product.pk %}">Редактировать</a>
+        </li>
+    {% endif %}
+    {% if perms.feedback.delete_product %}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page"
+               href="{% url 'feedback:delete_product' product.pk %}">Удалить</a>
+        </li>
+    {% endif %}
     {% if user.is_authenticated %}
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'feedback:review_add' product.pk %}">Добавить

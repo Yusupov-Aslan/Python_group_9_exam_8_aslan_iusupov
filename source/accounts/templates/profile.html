@@ -23,6 +23,6 @@
              src="{{ user_object.profile.avatar.url }}" alt="user avatar">
     {% endif %}
 
-{#    {% include "partial/product_list.html" %}#}
+    {% include "partial/review_list.html" with reviews=user_object.reviews.all %}
 
 {% endblock content %}

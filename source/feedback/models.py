@@ -42,7 +42,7 @@ class Product(models.Model):
                                 null=True, blank=True)
 
     def get_average_mark(self):
-        reviews = self.reviews.all()
+        reviews = self.reviews.filter(moderate=True)
         sum = 0
         count = reviews.count()
         for review in reviews:

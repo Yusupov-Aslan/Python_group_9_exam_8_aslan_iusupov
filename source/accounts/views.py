@@ -54,31 +54,12 @@ class UserProfileView(LoginRequiredMixin, DetailView):
     model = get_user_model()
     template_name = "profile.html"
     context_object_name = "user_object"
-    # paginate_related_by = 5
-    # paginate_related_orphans = 0
-
-    # def get_context_data(self, **kwargs):
-    #     paginator = Paginator(
-    #         self.get_object().products.all(),
-    #         self.paginate_related_by,
-    #         self.paginate_related_orphans,
-    #     )
-    #
-    #     page_number = self.request.GET.get('page', 1)
-    #     page = paginator.get_page(page_number)
-    #
-    #     kwargs['page_obj'] = page
-    #     kwargs['products'] = page.object_list
-    #     kwargs['is_paginated'] = page.has_other_pages()
-    #
-    #     return super(UserProfileView, self).get_context_data(**kwargs)
 
 
-class UserList(PermissionRequiredMixin, ListView):
+class UserList(ListView):
     model = get_user_model()
     context_object_name = 'users'
     template_name = "profile_list.html"
-    permission_required = "accounts.view_profile"
 
 
 class UpdateUserView(LoginRequiredMixin, UpdateView):

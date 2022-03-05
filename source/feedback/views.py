@@ -40,7 +40,7 @@ class ProductDetailView(DetailView):
 
 
 class ProductUpdateView(PermissionRequiredMixin, UpdateView):
-    permission_required = "feedback:change_product"
+    permission_required = "feedback.change_product"
     model = Product
     template_name = 'product/product_update.html'
     form_class = ProductForm
@@ -50,7 +50,7 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
 
 
 class ProductDeleteView(PermissionRequiredMixin, DeleteView):
-    permission_required = "feedback:delete_product"
+    permission_required = "feedback.delete_product"
     model = Product
     template_name = 'product/product_delete.html'
     success_url = reverse_lazy('feedback:index')
@@ -75,13 +75,18 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
 
 
 class ReviewUpdateView(UpdateView):
-    # permission_required = "feedback:change_review"
     model = Review
     form_class = ReviewForm
     template_name = 'review/review_update.html'
 
     def get_success_url(self):
         return reverse("feedback:one_product", kwargs={"pk": self.object.product.pk})
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.moderate = False
+        self.object.save()
+        return super().post(request, *args, **kwargs)
 
 
 class ReviewDeleteView(DeleteView):
