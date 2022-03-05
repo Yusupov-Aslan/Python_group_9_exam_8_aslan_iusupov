@@ -1,16 +1,6 @@
 [
 {
     "model": "feedback.product",
-    "pk": 1,
-    "fields": {
-        "name_goods": "Lenovo V14",
-        "category": "laptops",
-        "description": "Celeron DC N4020 1.1-2.8GHz,4GB,SSD 120GB,14\"HD,RUS,DOS HDMI, IRON GRAY",
-        "picture": ""
-    }
-},
-{
-    "model": "feedback.product",
     "pk": 2,
     "fields": {
         "name_goods": "PHILIPS 21,5\"",
@@ -57,6 +47,32 @@
         "category": "laptops",
         "description": "Cubi N 8GL-050BRU, Intel Celeron N4000 (1.10-2.60GHz), 1xSlots DDR4, 1xM.2 2280 PCIe, SATA SSD, 1x2.5“ HDD, SSD, Intel UHD Graphics 600, D-Sub, HDMI, 4xUSB3.0, RJ45, WiFi ac, BT 4.2, DOS, Black",
         "picture": "pictures/неттоп.jpg"
+    }
+},
+{
+    "model": "feedback.review",
+    "pk": 1,
+    "fields": {
+        "author": 1,
+        "product": 2,
+        "text": "qwerty",
+        "mark": 5,
+        "moderate": false,
+        "created_at": "2022-03-05T11:04:14.305Z",
+        "edited_at": "2022-03-05T12:45:35.499Z"
+    }
+},
+{
+    "model": "feedback.review",
+    "pk": 3,
+    "fields": {
+        "author": 1,
+        "product": 6,
+        "text": "qwertyu",
+        "mark": 5,
+        "moderate": false,
+        "created_at": "2022-03-05T12:56:43.894Z",
+        "edited_at": "2022-03-05T12:56:43.894Z"
     }
 }
 ]
