@@ -1,0 +1,62 @@
+[
+{
+    "model": "feedback.product",
+    "pk": 1,
+    "fields": {
+        "name_goods": "Lenovo V14",
+        "category": "laptops",
+        "description": "Celeron DC N4020 1.1-2.8GHz,4GB,SSD 120GB,14\"HD,RUS,DOS HDMI, IRON GRAY",
+        "picture": ""
+    }
+},
+{
+    "model": "feedback.product",
+    "pk": 2,
+    "fields": {
+        "name_goods": "PHILIPS 21,5\"",
+        "category": "monitors",
+        "description": "223V5LSB2 TN LED WIDE 1920x1080 170, 160 10000000 - 1 5ms VGAhttps",
+        "picture": "pictures/Монитор.png"
+    }
+},
+{
+    "model": "feedback.product",
+    "pk": 3,
+    "fields": {
+        "name_goods": "Тонер HP LJ",
+        "category": "office_equipment",
+        "description": "1010, 1012, 1015, 1020, 1022 (NetProduct) 100 г, банка",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "feedback.product",
+    "pk": 4,
+    "fields": {
+        "name_goods": "МФУ Pantum",
+        "category": "office_equipment",
+        "description": "M6700DW (A4, Printer, Scanner, Copier, 1200x1200dpi, 30ppm, Duplex Print, USB, LAN, Wi-Fi, White)",
+        "picture": "pictures/мфу.jpg"
+    }
+},
+{
+    "model": "feedback.product",
+    "pk": 5,
+    "fields": {
+        "name_goods": "ML-180 K С ПЛАНКОЙ",
+        "category": "video_surveillance",
+        "description": "цвет СЕРЫЙ Электромагнитный ЗАМОК, усилие 180 кг(*id 12) https://www.link.kg/catalog/9/36230745\\t*\",",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "feedback.product",
+    "pk": 6,
+    "fields": {
+        "name_goods": "Неттоп MSI",
+        "category": "laptops",
+        "description": "Cubi N 8GL-050BRU, Intel Celeron N4000 (1.10-2.60GHz), 1xSlots DDR4, 1xM.2 2280 PCIe, SATA SSD, 1x2.5“ HDD, SSD, Intel UHD Graphics 600, D-Sub, HDMI, 4xUSB3.0, RJ45, WiFi ac, BT 4.2, DOS, Black",
+        "picture": "pictures/неттоп.jpg"
+    }
+}
+]
