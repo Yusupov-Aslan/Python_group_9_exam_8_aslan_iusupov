@@ -32,6 +32,12 @@ class ProductDetailView(DetailView):
     model = Product
     context_object_name = "product"
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        product = self.get_object()
+        ctx['average'] = product.get_average_mark()
+        return ctx
+
 
 class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = "feedback:change_product"

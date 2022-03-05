@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.core.validators import BaseValidator
 from django.utils.deconstruct import deconstructible
+
 # Create your models here.
 
 CATEGORY_CHOICES = [("other", "Other"), ("laptops", "Laptops"), ("monitors", "Monitors"),
@@ -39,6 +40,16 @@ class Product(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Текст записи')
     picture = models.ImageField(verbose_name="Картинка", upload_to="pictures/", default='/pictures/product.jpg',
                                 null=True, blank=True)
+
+    def get_average_mark(self):
+        reviews = self.reviews.all()
+        sum = 0
+        count = reviews.count()
+        for review in reviews:
+            sum += review.mark
+        if count:
+            return sum / count
+        return 0
 
 
 class Review(models.Model):
