@@ -1,3 +1,4 @@
+
 <h2>Отзывы</h2>
 
 {% for review in reviews %}
@@ -17,6 +18,10 @@
             {% endif %}
             {% if request.user == review.author or perms.feedback.delete_review %}
                 <a class="btn btn-danger mt-3" href="{% url 'feedback:review_delete' review.pk %}">Удалить
+                    отзыв</a>
+            {% endif %}
+            {% if request.user|has_group:"Moderators"%}
+                <a class="btn btn-danger mt-3" href="{% url 'feedback:review_moderate' review.pk %}">Подтвердить
                     отзыв</a>
             {% endif %}
         </div>

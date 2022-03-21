@@ -70,6 +70,9 @@ TEMPLATES = [
         },
     },
 ]
+TEMPLATE_LOADERS = (
+    'django.template.loaders.app_directories.load_template_source',
+)
 
 WSGI_APPLICATION = 'exam8.wsgi.application'
 

@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from feedback.forms import ProductForm, ReviewForm
@@ -95,3 +96,11 @@ class ReviewDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('feedback:one_product', kwargs={"pk": self.object.product.pk})
+
+
+class ReviewModerateView(View):
+    def get(self, request, *args, **kwargs):
+        review = Review.objects.get(id=kwargs.get('pk'))
+        review.moderate = True
+        review.save()
+        return redirect('feedback:review_moderate')
